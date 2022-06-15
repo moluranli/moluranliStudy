@@ -3,7 +3,19 @@
 </p>
 <h1 align="center">MoluranliStudy</h1>
 
-[常用资源](https://shimo.im/docs/MuiACIg1HlYfVxrj/)
-[GitHub](https://github.com/Snailclimb/docsify-demo)
-[开始阅读](#MoluranliStudy)
 
+
+<span id="busuanzi_container_site_pv" style='display:none'>
+    👀 本站总访问量：<span id="busuanzi_value_site_pv"></span> 次
+</span>
+<span id="busuanzi_container_site_uv" style='display:none'>
+    | 🚴‍♂️ 本站总访客数：<span id="busuanzi_value_site_uv"></span> 人
+</span>
+
+[常用资源](./docs/EveryDayPlay/StudyValue)
+[GitHub](https://github.com/Snailclimb/docsify-demo)
+[开始阅读](.\docs\a-1Java基础巩固.md)
+
+
+
+![705445](./_image/index.jpg)

@@ -10,6 +10,7 @@
     content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css" id="theme_style"/>
     <link rel="stylesheet" href="https://unpkg.com/docsify-toc@1.0.0/dist/toc.css"/>
+    <link rel="shortcut icon" href="moluranliStudy.ico">
 </head>
 
 <body>
@@ -30,6 +31,8 @@
       maxLevel: 5,//最大支持渲染的标题层级
       subMaxLevel: 3,
       homepage: 'README.md',
+      //封面单独显示
+      onlyCover: true,
       coverpage: true,
       loadSidebar: true,
       auto2top: true,//切换页面后是否自动跳转到页面顶部
@@ -100,6 +103,8 @@
   <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
   <!--右上角自定义图片-->
   <script src="//cdn.jsdelivr.net/npm/docsify-corner/dist/docsify-corner.js"></script>
+  <!--访问量统计-->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   <!--离线模式-->
   <script>
     if (typeof navigator.serviceWorker !== 'undefined') {
