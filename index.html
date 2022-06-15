@@ -93,6 +93,12 @@
   <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
   <!--右上角自定义图片-->
   <script src="//cdn.jsdelivr.net/npm/docsify-corner/dist/docsify-corner.js"></script>
+  <!--离线模式-->
+  <script>
+    if (typeof navigator.serviceWorker !== 'undefined') {
+      navigator.serviceWorker.register('sw.js')
+    }
+  </script>
 </body>
 
 </html>
