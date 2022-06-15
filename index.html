@@ -5,10 +5,11 @@
   <meta charset="UTF-8">
   <title>MoluranliStudy</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Description">
+  <meta name="description" content="Description"/>
   <meta name="viewport"
-    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/docsify-toc@1.0.0/dist/toc.css"/>
 </head>
 
 <body>
@@ -34,6 +35,40 @@
         // 搜索标题的最大程级, 1 - 6
         depth: 3,
       },
+      //返回顶部
+      scrollToTop: {
+        auto: true,
+        text: 'Top',
+        icon: 'arrow-up-1',
+        right: 15,
+        bottom: 15,
+        width: 50,
+        height: 40,
+        offset: 500
+      },
+      //代码快复制粘贴设置
+      copyCode: {
+        buttonText : 'Copy',
+        errorText  : 'Error',
+        successText: 'Success'
+      },
+      //结尾章节跳转
+      pagination: {
+        previousText: '上一章节',
+        nextText: '下一章节',
+        crossChapter: true,
+        crossChapterText: true,
+      },
+      //自定义图片
+      repo:'true',
+      corner: {
+        url: "https://github.com/moluranli",
+        // you can set the image link here  
+        icon: "https://s2.loli.net/2022/06/15/FVTg1bBWxoDzAs5.png",
+        // the size of the image  
+        width: 80,
+        height: 80
+      },
       plugins: [
         EditOnGithubPlugin.create('https://github.com/moluranli/moluranliStudy/tree/master/')
       ],
@@ -50,6 +85,14 @@
   <script src="//unpkg.com/docsify/lib/plugins/zoom-image.js"></script>
   <!-- 字数统计 -->
   <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
+  <!--滚动到页面顶端-->>
+  <script src="//unpkg.com/@zhg-x/docsify-plugins@1.0.2/src/scroll-to-top.js"></script>
+  <!--emoji表情解析-->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+  <!--分页-->
+  <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <!--右上角自定义图片-->
+  <script src="//cdn.jsdelivr.net/npm/docsify-corner/dist/docsify-corner.js"></script>
 </body>
 
 </html>
