@@ -8,5 +8,6 @@
   * [Shiro](./docs/b-2Shiro+Thymeleaf.md)
 
 
-- 项目学习
-  - [在线论坛项目(待完善)](./docs/c-1Forum_Practice在线论坛.md)
+* 项目学习
+
+  * [在线论坛项目(待完善)](./docs/c-1Forum_Practice在线论坛.md)

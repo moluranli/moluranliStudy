@@ -8,11 +8,18 @@
   <meta name="description" content="Description"/>
   <meta name="viewport"
     content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css"/>
-  <link rel="stylesheet" href="https://unpkg.com/docsify-toc@1.0.0/dist/toc.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css" id="theme_style"/>
+    <link rel="stylesheet" href="https://unpkg.com/docsify-toc@1.0.0/dist/toc.css"/>
 </head>
 
 <body>
+  <!--导航栏-->
+  <nav>
+    <a href="#/./docs/a-1Java基础巩固">快速开始</a>
+    <a href="javascript:void(0);" onclick="changeStyle()">主题切换</a>
+    <a href="https://github.com/moluranli">Github</a>
+    <a href="#/./docs/about">关于站点</a>
+  </nav>
   <div id="app"></div>
   <!-- docsify-edit-on-github -->
   <script src="//unpkg.com/docsify-edit-on-github/index.js"></script>
@@ -64,7 +71,7 @@
       corner: {
         url: "https://github.com/moluranli",
         // you can set the image link here  
-        icon: "https://s2.loli.net/2022/06/15/FVTg1bBWxoDzAs5.png",
+        icon: "https://s2.loli.net/2022/06/15/DZAb7K5zcpMd6Fw.png",
         // the size of the image  
         width: 80,
         height: 80
@@ -97,6 +104,17 @@
   <script>
     if (typeof navigator.serviceWorker !== 'undefined') {
       navigator.serviceWorker.register('sw.js')
+    }
+  </script>
+  <!--切换主题-->
+  <script>
+    function changeStyle(type){
+      let css = document.getElementById('theme_style')
+      if(css.href=='http://cdn.jsdelivr.net/npm/docsify/themes/dark.css'){
+        css.href = '//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css'
+      }else{
+        css.href = '//cdn.jsdelivr.net/npm/docsify/themes/dark.css'
+      }
     }
   </script>
 </body>
