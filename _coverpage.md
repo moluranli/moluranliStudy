@@ -17,5 +17,3 @@
 [开始阅读](.\docs\a-1Java基础巩固.md)
 
 
-
-![705445](./_image/index.jpg)
