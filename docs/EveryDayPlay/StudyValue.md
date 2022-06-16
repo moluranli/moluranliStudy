@@ -21,3 +21,7 @@
 [Spring注解开发 https://www.bilibili.com/video/BV1gW411W7wy?from=search&seid=18443927838987609677&spm_id_from=333.337.0.0](https://www.bilibili.com/video/BV1gW411W7wy?from=search&seid=18443927838987609677&spm_id_from=333.337.0.0) 
 
 [SpringBoot(含SpringMVC)：https://www.bilibili.com/video/BV19K4y1L7MT?spm_id_from=333.999.0.0](https://www.bilibili.com/video/BV19K4y1L7MT?spm_id_from=333.999.0.0)
+
+### 设计模式
+
+[尚硅谷Java设计模式 https://www.bilibili.com/video/BV1G4411c7N4?spm_id_from=333.337.search-card.all.click&vd_source=737bc72ddc8b0e9190302e61a877a9d8](https://www.bilibili.com/video/BV1G4411c7N4?spm_id_from=333.337.search-card.all.click&vd_source=737bc72ddc8b0e9190302e61a877a9d8)
