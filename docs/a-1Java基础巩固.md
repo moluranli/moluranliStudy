@@ -1,16 +1,20 @@
-# java基础
 
-## java三大面向对象特征
 
-### 1. 封装
+# java
+
+# java概述
+
+## 1.java三大面向对象特征
+
+**(1). 封装**
 
 封装就是把**一类事物变成一个抽象的类**,比如将一类学生人群封装为一个Student类,并且设置访问限,public,private,protect,default等,并且**隐藏内部的属性和细节**,仅对外部**提供接口访问**.
 
-### 2. 继承
+**(2). 继承**
 
 从已有的类里派生出新的类,然后派生类有父类的属性和一些方法,同时java只能单继承,**一个子类只能有一个父类**,同时子类也可可以有自己的方法,同时可以重写父类的方法(构造方法和被final修饰的方法不能重写,同时访问权限必须更大比如public).
 
-### 3. 多态
+**(3). 多态**
 
 同一个接口,使用不同的实例执行不同的操作.
 
@@ -24,7 +28,7 @@
 
   
 
-## java的权限访问
+## 2.java中的权限访问
 
 | 访问权限 | 类   | 包   | 子类 | 其他包 |
 | -------- | ---- | ---- | ---- | ------ |
@@ -35,7 +39,7 @@
 
 
 
-## JVM vs JDK vs JRE
+## 3.JVM vs JDK vs JRE
 
 首先一个java程序的运行流程如下
 
@@ -43,20 +47,28 @@
 
 JDK是java编写工具,里面包含了JRE运行环境还有一些工具类,
 
-## 静态方法为什么不能调用非静态成员?
+
+
+# java方法
+
+## 1.静态方法为什么不能调用非静态成员?
 
 1. 静态方法是属于类的，在类加载的时候就会分配内存，可以通过类名直接访问。而非静态成员属于实例对象，只有在对象实例化之后才存在，需要通过类的实例对象去访问。
 2. 在类的非静态成员不存在的时候静态成员就已经存在了，此时调用在内存中还不存在的非静态成员，属于非法操作。
 
 
 
-## java基本类型和包装类
+# java类
 
-基本类型:byte,short,int,long,float,double,char,boolean
+## 1.java基本类型和包装类
 
-包装类型:Byte,Short,Integer,Long,Float,Double,Character,Boolean
+基本类型:byte,   short,  int,  long,  float
 
+​					double,  char,  boolean
 
+包装类型:Byte,  Short,  Integer,  Long,  Float
+
+​					Double,  Character,  Boolean
 
 基本类型和包装类的区别
 
@@ -78,7 +90,7 @@ java的自动装箱与拆箱
 
 
 
-## 成员变量和局部变量的区别
+## 2.成员变量和局部变量的区别
 
 1. 成员变量一般在类中定义,而局部变量一般在方法体内定义,并且成员变量可以使用private,static定义,而局部变量则不可以,而两者都可以使用final定义
 2. 成员变量如果没有被static修饰则会放在堆内存中,而局部变量是放在栈内存中
@@ -86,7 +98,7 @@ java的自动装箱与拆箱
 
 
 
-## 抽象类和接口的共同点和区别
+## 3.抽象类和接口的共同点和区别
 
 共同点
 
@@ -107,7 +119,7 @@ java的自动装箱与拆箱
 
 
 
-## 浅拷贝和深拷贝
+## 4.浅拷贝和深拷贝
 
 - 浅拷贝,会生成一个新的对象,对象与原对象不相等,但是属性等完全相等,如果属性中也有引用类型,那么也是相等的
 - 深拷贝,会生成一个新的对象,对象与原对象不相等,同时属性也是复制,与原属性不相等
@@ -115,7 +127,7 @@ java的自动装箱与拆箱
 
 
 
-## Object的11个方法
+## 5.Object的11个方法
 
 常见的equals(),hascode(),toString(),clone(){natice关键字}方法
 
@@ -133,8 +145,39 @@ finalize(),被垃圾回收期回收时调用的方法
 
 
 
-## 为什么重写 equals() 时必须重写 hashCode() 方法？
+## 6.为什么重写 equals() 时必须重写 hashCode() 方法？
 
 因为两个相等的对象的 `hashCode` 值必须是相等。也就是说如果 `equals` 方法判断两个对象是相等的，那这两个对象的 `hashCode` 值也要相等。
 
 如果重写 `equals()` 时没有重写 `hashCode()` 方法的话就可能会导致 `equals` 方法判断是相等的两个对象，`hashCode` 值却不相等。
+
+
+
+## 7.String类
+
+**String, StringBuffer, StringBuilder**的区别
+
+**String**是一个不可变类: 
+
+public **final** class String  通过final修饰, 使得String类不能被继承,同时String中使用byte[]保存数据
+
+private final byte[] value String对象一旦赋值就不能修改,所以每一次修改都是生成一个新的对象,同时使用private修饰,同时不提供访问value的方法
+
+同时每一次修改String类,都是重新生成一个新的对象,所以对少量数据进行操作的时候,使用String
+
+**StringBuffer**是一个线程安全类,对方法添加了同步锁,或者是对调用的方法添加了同步锁,更改数据没有生成新的对象,而是改变对象应用,所以对多线程环境下使用StringBuffer
+
+**StringBuilder**不是一个线程安全类,没有对线程添加同步锁,更改数据也没有生成新的对象,所以在单线程的环境下使用StringBuilder
+
+
+
+# java异常
+
+详见[javaGuide](https://javaguide.cn/java/basis/java-basic-questions-03.html#%E5%BC%82%E5%B8%B8)
+
+
+
+# java泛型
+
+## 
+
