@@ -6,6 +6,8 @@
 
 [JavaGuide面试指南 https://javaguide.cn/](https://javaguide.cn/)
 
+[java集合:源码级别](https://www.bilibili.com/video/BV1YA411T76k?p=4&vd_source=737bc72ddc8b0e9190302e61a877a9d8)
+
 ### 算法
 
 [左神算法 https://www.bilibili.com/video/BV13g41157hK?spm_id_from=333.337.search-card.all.click](https://www.bilibili.com/video/BV13g41157hK?spm_id_from=333.337.search-card.all.click)
