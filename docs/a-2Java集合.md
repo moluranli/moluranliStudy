@@ -138,7 +138,7 @@ ArrayList维护了一个Object[]属性的数组`transient Object[] elementData`�
 
 ## 源码分析(走ArrayList的无参构造器)
 
-> [Tip]
+> [!Tip]
 >
 > idea的dubug 显示的数据是简化后的,所以可能不会显示elementData中为null的数据
 >
@@ -186,7 +186,7 @@ private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {};
 
 2.list.add(i);
 
-> [Tip]
+> [!Tip]
 >
 > 当我们使用迭代器或 foreach 遍历时，如果你在 foreach 遍历时，自动调用迭代器的迭代方法，此时在遍历过程中调用了集合的add,remove方法时，modCount就会改变，而迭代器记录的modCount是开始迭代之前的，如果两个不一致，就会报异常，说明有两个线路（线程）同时操作集合。这种操作有风险，为了保证结果的正确性， 避免这样的情况发生，一旦发现modCount与expectedModCount不一致，立即报错。
 
