@@ -29,3 +29,7 @@
 [狂神单例模式 https://www.bilibili.com/video/BV1K54y197iS?spm_id_from=333.999.0.0&vd_source=737bc72ddc8b0e9190302e61a877a9d8](https://www.bilibili.com/video/BV1K54y197iS?spm_id_from=333.999.0.0&vd_source=737bc72ddc8b0e9190302e61a877a9d8)
 
 [狂神设计模式 https://www.bilibili.com/video/BV1mc411h719?vd_source=737bc72ddc8b0e9190302e61a877a9d8](https://www.bilibili.com/video/BV1mc411h719?vd_source=737bc72ddc8b0e9190302e61a877a9d8)
+
+### 主题相关
+
+[docsify另一种主题](https://blog.csdn.net/wdj_yyds/article/details/125299527)

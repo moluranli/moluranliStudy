@@ -114,7 +114,7 @@ public static void main(String[] args) {
 
 
 
-## Colletion子接口List
+# Colletion子接口List
 
 首先**List**接口是一个有序集合,
 
@@ -279,3 +279,265 @@ public ArrayList(int initialCapacity) {
 2.走的其他方法和无参的时候一样
 
 只是第一次经过判断直接扩容1.5倍
+
+
+
+
+
+# LinkedList分析
+
+## 介绍
+
+LinkList内部是通过双向链表存储数据,所以据的添加和删除较ArrayList优,因为ArrayList在添加数据的时候可能会发生扩容以及对对象的复制,而链表不用,但是对于元素的查询,ArrayList要优于LinkedList,因为ArrayList使用数组,只需要下标就可以获取数据,而LinkedList则需要链表依次寻找
+
+但是链表本身每一个元素会占用较大的资源,而ArrayList扩容会存储多个为null的数据
+
+## 源码分析(add方法)
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        LinkedList<Object> list = new LinkedList<>();
+
+        list.add(1);
+
+        System.out.println(list);
+    }
+}
+```
+
+
+
+1.LinkedList<Object> list = new LinkedList<>();
+
+```java
+//第一步直接调用无参构造函数
+public LinkedList() {
+}
+```
+
+会生成空数据{}
+
+![image-20220620110018975](https://s2.loli.net/2022/06/20/5rtKnMHE4zJCXYj.png)
+
+2.执行add()方法
+
+```java
+//第一步会先进行装箱操作
+@IntrinsicCandidate
+public static Integer valueOf(int i) {
+    if (i >= IntegerCache.low && i <= IntegerCache.high)
+        return IntegerCache.cache[i + (-IntegerCache.low)];
+    return new Integer(i);
+}
+
+//执行添加方法
+    public boolean add(E e) {
+        linkLast(e);
+        return true;
+    }
+
+//使用传入的数据e作为data生成一个新的节点,并且new Node内部将l当做自己的前节点,并且让last指向新的节点,如果last为null,则让first指向新节点,如果last不为null,当前节点的last就指向新节点
+//第一次add: first和last和l都指向新节点,即第一个节点
+//第二次add: first指向第一个节点,last指向新生成的节点,因为l不为null且为第一个节点,创建新节点的时候就将当前节点指向l即第一个节点,故第一个节点和第二个节点构成连接双向
+    void linkLast(E e) {
+        final Node<E> l = last;
+        final Node<E> newNode = new Node<>(l, e, null);
+        last = newNode;
+        if (l == null)
+            first = newNode;
+        else
+            l.next = newNode;
+        size++;
+        modCount++;
+    }
+
+//new Node()内部结构
+        Node(Node<E> prev, E element, Node<E> next) {
+            this.item = element;
+            this.next = next;
+            this.prev = prev;
+        }
+```
+
+## 源码分析(remove方法:删除第一个元素)
+
+源码
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        LinkedList<Object> list = new LinkedList<>();
+
+        list.add(1);
+        list.add(2);
+        list.remove();
+        System.out.println(list);
+    }
+}
+```
+
+
+1.进入remove方法
+
+```java
+//指向removeFirst方法,删除第一个元素
+public E remove() {
+    return removeFirst();
+}
+
+//进入removeFirst方法,查看第一个元素是否为null
+  public E removeFirst() {
+        final Node<E> f = first;
+        if (f == null)
+            throw new NoSuchElementException();
+        return unlinkFirst(f);
+    }
+
+//真正指向删除方法
+    private E unlinkFirst(Node<E> f) {
+        // assert f == first && f != null;
+        final E element = f.item;//取出第一个元素数据
+        final Node<E> next = f.next;//next指向第二个节点
+        f.item = null;
+        f.next = null; // help GC, 让第一个节点为null
+        first = next;//让first指向第二个节点
+        if (next == null)//如果第二个节点为null,即只有一个元素
+            last = null;
+        else//如果第二个节点不为null,那么就将第二个节点的prev变为null
+            next.prev = null;
+        size--;
+        modCount++;
+        return element;
+    }
+```
+
+
+
+# Colletion子接口Set
+
+Set是一个无序去重的集合
+
+
+
+# HashSet分析
+
+## 1.介绍
+
+**hashSet**内部相当于是一个**hashMap**结构,即相当于是一个一维的数组,数组的每一位上存储的是一个Node链表结构数据
+
+- 对于**hashSet**的扩容:如果每一行的链表超过8位,并且总的超过64位,就是构建红黑树,如果表的长度超过64位,这回扩增数组
+- 添加元素来说,会根据提供的数的hash算法来生成索引,所以位置并不确定,并且如果传入的数hash生成的数相同,则会比较同位置的数,用**equals**方法,如果相同,则放弃添加,否则,添加到末尾
+
+
+
+## 2.源码分析
+
+源码
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        Set set = new HashSet<>();
+
+        set.add("Java");
+        set.add("Web");
+        set.add("Java");
+        set.add(null);
+        set.add(null);
+
+        System.out.println(set);
+    }
+}
+```
+
+
+
+1,debug分析
+
+```java
+//可以看出hashSet实际上是一个HashMap结构
+public HashSet() {
+    map = new HashMap<>();
+}
+
+//进入add方法,实际上调用了hashmap.put方法,PRESENT其实是一个static的new Object[]起到占位作用
+    public boolean add(E e) {
+        return map.put(e, PRESENT)==null;
+    }
+
+//进入put方法, 求出key的hash
+    public V put(K key, V value) {
+        return putVal(hash(key), key, value, false, true);
+    }
+
+//hash函数的内部为,可以看出如果我们传入的是null,那么索引值一直为0
+    static final int hash(Object key) {
+        int h;
+        return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
+    }
+
+//主要的方法
+    final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
+                   boolean evict) {
+        Node<K,V>[] tab; Node<K,V> p; int n, i;
+        //table为Node[]数组,那么第一次就为null 那么执行下面的方法
+        //查看resize(),其中有一个下面的语句,表示创建了一个16大小的newTab,那么现在的tab就是一个大小为16的Node[]
+        //Node<K,V>[] newTab = (Node<K,V>[])new Node[newCap];
+        if ((tab = table) == null || (n = tab.length) == 0)
+            n = (tab = resize()).length;
+        //tab[i-(n-1)&hash]就是计算存入的数据在数组中的位置,如果位置上没有元素,那么就直接添加上
+        if ((p = tab[i = (n - 1) & hash]) == null)
+            tab[i] = newNode(hash, key, value, null);
+        //如果添加的元素重复,就会进入else
+        else {
+            Node<K,V> e; K k;
+            //p指向的是Node[]某一个元素的首节点 
+            //hash和equals
+            //两个对象hash相同,对象也可能不同,可能发生hash碰撞
+            //如果两个对象hash相同,并且如果是基本属性,只能使用==方法比较内容相同,则是同一份数据
+            //如果两个对象hash相同,并且使用equals,那么是同一个对象
+            //那么就不添加数据
+            if (p.hash == hash &&
+                ((k = p.key) == key || (key != null && key.equals(k))))
+                e = p;
+            else if (p instanceof TreeNode)
+            //如果p是一个红黑树结构存储的,那么就使用红黑树的方法进行添加
+                e = ((TreeNode<K,V>)p).putTreeVal(this, tab, hash, key, value);
+            else {
+            //因为Node[]的一个元素存储的是一个链表,所以对链表进行循环
+                for (int binCount = 0; ; ++binCount) {
+                    //如果没有找到相同元素,就创建一个新的节点
+                    //并且如果链表长度>=7,创建红黑树,并且进入函数后还会进行判断
+                    //if (tab == null || (n = tab.length) < MIN_TREEIFY_CAPACITY)
+         //   resize();
+                    //如果数组长度小于64,会进行扩容,也就是说不会进行创建红黑树的操作
+                    if ((e = p.next) == null) {
+                        p.next = newNode(hash, key, value, null);
+                        if (binCount >= TREEIFY_THRESHOLD - 1) // -1 for 1st
+                            treeifyBin(tab, hash);
+                        break;
+                    }
+                    //如果元素相同,就直接跳出
+                    if (e.hash == hash &&
+                        ((k = e.key) == key || (key != null && key.equals(k))))
+                        break;
+                    //并且把节点加入到链表结尾
+                    p = e;
+                }
+            }
+            if (e != null) { // existing mapping for key
+                V oldValue = e.value;
+                if (!onlyIfAbsent || oldValue == null)
+                    e.value = value;
+                afterNodeAccess(e);
+                return oldValue;
+            }
+        }
+        ++modCount;
+        if (++size > threshold)
+            resize();
+        afterNodeInsertion(evict);
+        return null;
+    }
+```
