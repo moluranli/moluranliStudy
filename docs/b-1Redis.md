@@ -325,7 +325,7 @@ public class SecKillServiceImpl {
 
 会生成appendonly.aof文件,aof默认关闭,当aof和rdb都开启时,使用aof
 
-![image-20220419104512045](https://s2.loli.net/2022/04/27/fWVnAuNsOLaUkRm.png)![image-20220419104610301](https://s2.loli.net/2022/04/27/rwMa9Y45s3jTgZq.png)![image-20220419104639510](C:\Users\full\AppData\Roaming\Typora\typora-user-images\image-20220419104639510.png)
+![image-20220419104512045](https://s2.loli.net/2022/04/27/fWVnAuNsOLaUkRm.png)![image-20220419104610301](https://s2.loli.net/2022/04/27/rwMa9Y45s3jTgZq.png)
 
 
 
