@@ -8,6 +8,7 @@
   * [Java基础](./docs/a-1Java基础巩固.md)
   * [Java其他重要知识点](./docs/a-1Java其他重要知识点.md)
   * [Java集合](./docs/a-2Java集合.md)
+  * [MySql索引](./docs/a-3MySql索引.md)
 * 🛶中间件学习
 
   * [Redis](./docs/b-1Redis.md)
