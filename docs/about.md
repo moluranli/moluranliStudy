@@ -1,3 +1,3 @@
 # 站点介绍
 
-[访问情况:https://moluranli.github.io/moluranliStudy/#/](https://moluranli.github.io/moluranliStudy/#/)
+[访问情况:https://clustrmaps.com/site/1bpes](https://clustrmaps.com/site/1bpes)
