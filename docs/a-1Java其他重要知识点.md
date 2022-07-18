@@ -42,11 +42,14 @@
 详见:[获取 Class 对象的四种方式](https://javaguide.cn/java/basis/reflection.html#%E8%8E%B7%E5%8F%96-class-%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%9B%9B%E7%A7%8D%E6%96%B9%E5%BC%8F)
 
 1. 直接通过Stu.class获取
+
 2. 通过Class.forName("路径")
+
 3. 通过stu.getClass()
+
 4. 通过类加载器ClassLoader.loadClass("类路径")
 
-
+   
 
 ### 3.3 反射的基本操作
 
