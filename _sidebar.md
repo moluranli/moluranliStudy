@@ -10,6 +10,7 @@
   * [Java集合](./docs/a-2Java集合.md)
   * [MySql索引](./docs/a-3MySql索引.md)
   * [JVM学习](./docs/a-4JVM学习.md)
+  * [五大排序](./docs/a-6五大排序.md)
   * [面试题](./docs/a-5面试题.md)
 * 🛶中间件学习
 
@@ -21,6 +22,7 @@
 * 🍳项目学习
 
   * [在线论坛项目(待完善)](./docs/c-1Forum_Practice在线论坛.md)
+  * [wiki个人知识库](./docs/c-2wiki个人知识库.md)
 
 
 
