@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://s2.loli.net/2022/06/15/DZbSWA5EVvsCjoT.png" width="200" height="200"/>
+<img src="assets/img/avatar.png" width="200" height="200"/>
 </p>
 <h1 align="center">MoluranliStudy</h1>
 
@@ -14,6 +14,6 @@
 
 [常用资源](./docs/EveryDayPlay/StudyValue)
 [GitHub](https://github.com/Snailclimb/docsify-demo)
-[开始阅读](.\docs\a-1Java基础巩固.md)
+[开始阅读](docs/a-1Java基础巩固.md)
 
 

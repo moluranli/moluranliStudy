@@ -6,12 +6,9 @@
  * Register service worker.
  * ========================================================== */
 
-const RUNTIME = 'docsify'
+const RUNTIME = 'docsify-v2'
 const HOSTNAME_WHITELIST = [
-  self.location.hostname,
-  'fonts.gstatic.com',
-  'fonts.googleapis.com',
-  'cdn.jsdelivr.net'
+  self.location.hostname
 ]
 
 // The Util Function to hack URLs of intercepted requests
@@ -43,7 +40,11 @@ const getFixedUrl = (req) => {
  *  waitUntil(): activating ====> activated
  */
 self.addEventListener('activate', event => {
-  event.waitUntil(self.clients.claim())
+  event.waitUntil(
+    caches.keys()
+      .then(keys => Promise.all(keys.filter(key => key !== RUNTIME).map(key => caches.delete(key))))
+      .then(() => self.clients.claim())
+  )
 })
 
 /**
