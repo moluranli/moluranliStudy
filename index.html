@@ -8,7 +8,7 @@
   <meta name="description" content="MoluranliStudy：Java 学习笔记，包含 Java 基础、集合、JVM、MySQL、Redis、设计模式与秋招面试题。"/>
   <meta name="keywords" content="Java,Java基础,JVM,MySQL,Redis,设计模式,面试题,学习笔记"/>
   <meta name="author" content="moluranli"/>
-  <meta name="theme-color" content="#2c3e50"/>
+  <meta name="theme-color" content="#ffffff"/>
   <meta property="og:type" content="website"/>
   <meta property="og:title" content="MoluranliStudy · Java 学习笔记"/>
   <meta property="og:description" content="Java 学习笔记：基础、集合、JVM、MySQL、Redis、设计模式与秋招面试题。"/>
@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="assets/plugins/docsify-toc.css"/>
     <link rel="stylesheet" href="assets/docsify5/themes/addons/core-dark.min.css" id="theme_dark"
       media="(prefers-color-scheme: dark)"/>
+    <!-- DSH 风格主题层：只覆盖 CSS 变量，必须排在上面几个之后 -->
+    <link rel="stylesheet" href="assets/plugins/dsh-theme.css"/>
     <!-- 主题：auto（跟随系统）/ dark / light，手动选过就记住；深色层靠 <html class="dark-theme"> + 这个 link 的 media 控制 -->
     <script>
       (function () {
@@ -42,28 +44,6 @@
       })()
     </script>
     <link rel="shortcut icon" href="moluranliStudy.ico">
-    <style>
-      /* 站点主色：v5 core 主题的按钮、链接、高亮都由 --theme-color 派生 */
-      :root {
-        --theme-color: #42b983;
-      }
-      /* docsify 默认给封面随机取一个色相做渐变，每次刷新颜色都不一样，这里固定下来 */
-      section.cover {
-        background: linear-gradient(135deg, #eaf7f1 0%, #e6f0fb 100%) !important;
-      }
-      html.dark-theme section.cover {
-        background: linear-gradient(135deg, #131a21 0%, #0e1419 100%) !important;
-      }
-      /* 封面上的多行简介不要把行距拉得太开 */
-      section.cover blockquote p {
-        margin: .35em 0;
-      }
-      /* 封面按钮：第一个（开始阅读）当主按钮，其余是描边按钮 */
-      section.cover .cover-main a.button {
-        margin: .3rem .4rem;
-        border-radius: 6px;
-      }
-    </style>
 </head>
 
 <body>

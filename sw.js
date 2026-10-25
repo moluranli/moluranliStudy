@@ -8,7 +8,7 @@
  * 版本号变更会清空旧 cache，见 activate。
  * ========================================================== */
 
-const RUNTIME = 'docsify-v6';
+const RUNTIME = 'docsify-v7';
 const TIMEOUT_MS = 3500;
 
 // 新版本立即接管，不用等所有标签页关闭

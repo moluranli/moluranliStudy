@@ -1,0 +1,268 @@
+/* ==========================================================================
+   DSH 风格主题层
+   取色与排版参考 DeepSeek Harness 桌面端（shadcn neutral 调色板 + Inter 字体）：
+   无彩色主色、克制的中性灰、10px 圆角、细边框、安静的高亮。
+   本文件只覆盖 docsify v5 core 主题的 CSS 变量与少量结构细节，
+   必须放在 core.min.css / core-dark.min.css / docsify-toc.css 之后加载。
+   ========================================================================== */
+
+/* ---------- 浅色 ---------- */
+:root {
+  /* 底色与文字：白底 + 柔和近黑，避免纯黑刺眼 */
+  --color-bg: #ffffff;
+  --color-text: #252525;
+
+  /* 强调色：DSH 没有彩色主色，强调一律用中性色 */
+  --theme-color: #252525;
+
+  --border-color: #e5e5e5;
+  --border-radius: 10px;
+
+  /* 排版：Inter 优先，中文回落到系统中文字体 */
+  --font-family: "Inter", "Inter Variable", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui,
+    sans-serif;
+  --font-size: 16px;
+  --font-weight: 400;
+  --line-height: 1.72;
+  --heading-font-weight: 600;
+  --strong-font-weight: 600;
+
+  /* 代码与表格 */
+  --code-bg: #f5f5f5;
+  --codeblock-bg: #f7f7f7;
+  --table-row-alt-bg: #fafafa;
+
+  /* 引用块：细左边线，不用彩色 */
+  --blockquote-border-width: 0 0 0 2px;
+  --blockquote-border-color: #d4d4d4;
+  --blockquote-border-radius: 0;
+  --blockquote-color: #525252;
+
+  /* 提示框 */
+  --callout-bg: #fafafa;
+  --callout-border-color: #e5e5e5;
+  --callout-border-radius: 10px;
+
+  /* 按钮：实心近黑 + 8px 圆角，不再用胶囊形 */
+  --button-bg: #252525;
+  --button-color: #ffffff;
+  --button-border-radius: 8px;
+
+  /* 链接：默认细下划线，hover 变强调色（DSH 的写法） */
+  --link-underline-thickness: 1px;
+  --link-underline-color: #d4d4d4;
+  --link-underline-color-hover: #a3a3a3;
+
+  /* 侧边栏比正文略灰一档，形成层次 */
+  --sidebar-bg: #fafafa;
+  --sidebar-border-color: #e5e5e5;
+  --sidebar-width: 300px;
+
+  --cover-bg-overlay: none;
+}
+
+/* ---------- 深色 ---------- */
+html.dark-theme {
+  --color-bg: #171717;
+  --color-text: #ededed;
+  --theme-color: #ededed;
+
+  --border-color: rgb(255 255 255 / 0.1);
+
+  --code-bg: #0f0f0f;
+  --codeblock-bg: #0f0f0f;
+  --table-row-alt-bg: #1d1d1d;
+
+  --blockquote-border-color: #3f3f3f;
+  --blockquote-color: #a3a3a3;
+
+  --callout-bg: #1d1d1d;
+  --callout-border-color: rgb(255 255 255 / 0.12);
+
+  --button-bg: #ededed;
+  --button-color: #171717;
+
+  --link-underline-color: #404040;
+  --link-underline-color-hover: #737373;
+
+  --sidebar-bg: #0f0f0f;
+  --sidebar-border-color: rgb(255 255 255 / 0.08);
+
+  color-scheme: dark;
+}
+
+/* ---------- 代码块：细边框 + 圆角，去掉重阴影 ---------- */
+.markdown-section pre:where([data-lang]) {
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: none;
+}
+
+.markdown-section pre > code {
+  background: transparent;
+  border-radius: var(--border-radius);
+}
+
+.markdown-section :not(pre) > code {
+  padding: 0.15em 0.4em;
+  border-radius: 5px;
+  font-size: 0.9em;
+}
+
+/* ---------- 表格：圆角细边，表头浅底 ---------- */
+.markdown-section table {
+  border: 1px solid var(--border-color);
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.markdown-section table th,
+.markdown-section table td {
+  border: 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.markdown-section table th {
+  background: var(--table-row-alt-bg);
+  font-weight: 600;
+}
+
+.markdown-section table tr:last-child td {
+  border-bottom: 0;
+}
+
+/* ---------- 提示框：统一中性描边与底色（DSH 没有彩色语义块） ---------- */
+.markdown-section .callout,
+.markdown-section .callout.tip,
+.markdown-section .callout.note,
+.markdown-section .callout.warning,
+.markdown-section .callout.caution,
+.markdown-section .callout.important {
+  --callout-bg: #fafafa;
+  --callout-border-color: var(--border-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+}
+
+html.dark-theme .markdown-section .callout,
+html.dark-theme .markdown-section .callout.tip,
+html.dark-theme .markdown-section .callout.note,
+html.dark-theme .markdown-section .callout.warning,
+html.dark-theme .markdown-section .callout.caution,
+html.dark-theme .markdown-section .callout.important {
+  --callout-bg: #1d1d1d;
+}
+
+/* ---------- 标题：收紧字距，视觉更"安静" ---------- */
+.markdown-section h1,
+.markdown-section h2,
+.markdown-section h3,
+.markdown-section h4 {
+  letter-spacing: -0.011em;
+}
+
+/* ---------- 封面：纯中性底色，不用彩色渐变也不用径向光 ---------- */
+section.cover {
+  background: var(--color-bg) !important;
+}
+
+html.dark-theme section.cover {
+  background: var(--color-bg) !important;
+}
+
+section.cover h1 {
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+
+section.cover blockquote {
+  border: 0;
+  padding: 0;
+  font-style: normal;
+  color: #737373;
+}
+
+section.cover blockquote p {
+  margin: 0.35em 0;
+}
+
+html.dark-theme section.cover blockquote {
+  color: #a3a3a3;
+}
+
+section.cover .cover-main > p:last-child a.button {
+  margin: 0.3rem 0.4rem;
+  border-radius: var(--button-border-radius);
+  padding: 0.55em 1.3em;
+  font-weight: 500;
+}
+
+section.cover .cover-main > p:last-child a.button.secondary {
+  border-color: var(--border-color);
+  color: var(--color-text);
+}
+
+html.dark-theme section.cover .cover-main > p:last-child a.button.secondary {
+  border-color: rgb(255 255 255 / 0.16);
+  color: var(--color-text);
+}
+
+/* ---------- 顶栏与侧栏的细节对齐 ---------- */
+.app-nav > a {
+  font-weight: 450;
+}
+
+.sidebar {
+  border-right: 1px solid var(--sidebar-border-color);
+}
+
+.sidebar ul li a {
+  border-radius: 6px;
+  transition: color var(--duration-fast, 150ms) ease,
+    background-color var(--duration-fast, 150ms) ease;
+}
+
+.sidebar ul li.active > a {
+  font-weight: 600;
+}
+
+/* 搜索框：更接近输入框的样子 */
+.sidebar .search input {
+  border-radius: 8px;
+}
+
+/* 上一页/下一页导航按钮 */
+.docsify-pagination-container .pagination-item a {
+  border-radius: 8px;
+}
+
+/* ---------- 滚动条：细、低对比 ---------- */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #d4d4d4 transparent;
+}
+
+html.dark-theme {
+  scrollbar-color: #3f3f3f transparent;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4d4d4;
+  border-radius: 999px;
+}
+
+html.dark-theme ::-webkit-scrollbar-thumb {
+  background: #3f3f3f;
+}
