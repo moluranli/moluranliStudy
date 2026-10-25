@@ -6,16 +6,16 @@
    必须放在 core.min.css / core-dark.min.css / docsify-toc.css 之后加载。
    ========================================================================== */
 
-/* ---------- 浅色 ---------- */
+/* ---------- 浅色（暖白纸感） ---------- */
 :root {
-  /* 底色与文字：白底 + 柔和近黑，避免纯黑刺眼 */
-  --color-bg: #ffffff;
-  --color-text: #252525;
+  /* 底色：暖白偏米（不是 #fff），文字用暖黑，整体偏"纸"而不是"屏幕" */
+  --color-bg: #faf8f4;
+  --color-text: #26241f;
 
   /* 强调色：DSH 没有彩色主色，强调一律用中性色 */
-  --theme-color: #252525;
+  --theme-color: #26241f;
 
-  --border-color: #e5e5e5;
+  --border-color: #e8e3d9;
   --border-radius: 10px;
 
   /* 排版：Inter 优先，中文回落到系统中文字体 */
@@ -29,65 +29,65 @@
   --strong-font-weight: 600;
 
   /* 代码与表格 */
-  --code-bg: #f5f5f5;
-  --codeblock-bg: #f7f7f7;
-  --table-row-alt-bg: #fafafa;
+  --code-bg: #f1ece3;
+  --codeblock-bg: #f4f0e9;
+  --table-row-alt-bg: #f5f1ea;
 
   /* 引用块：细左边线，不用彩色 */
   --blockquote-border-width: 0 0 0 2px;
-  --blockquote-border-color: #d4d4d4;
+  --blockquote-border-color: #d9d3c7;
   --blockquote-border-radius: 0;
-  --blockquote-color: #525252;
+  --blockquote-color: #57524a;
 
   /* 提示框 */
-  --callout-bg: #fafafa;
-  --callout-border-color: #e5e5e5;
+  --callout-bg: #f5f1ea;
+  --callout-border-color: #e8e3d9;
   --callout-border-radius: 10px;
 
-  /* 按钮：实心近黑 + 8px 圆角，不再用胶囊形 */
-  --button-bg: #252525;
-  --button-color: #ffffff;
+  /* 按钮：实心暖黑 + 8px 圆角，不再用胶囊形 */
+  --button-bg: #26241f;
+  --button-color: #faf8f4;
   --button-border-radius: 8px;
 
   /* 链接：默认细下划线，hover 变强调色（DSH 的写法） */
   --link-underline-thickness: 1px;
-  --link-underline-color: #d4d4d4;
-  --link-underline-color-hover: #a3a3a3;
+  --link-underline-color: #d9d3c7;
+  --link-underline-color-hover: #a8a29a;
 
-  /* 侧边栏比正文略灰一档，形成层次 */
-  --sidebar-bg: #fafafa;
-  --sidebar-border-color: #e5e5e5;
+  /* 侧边栏比正文略深一档，形成层次 */
+  --sidebar-bg: #f4f1ea;
+  --sidebar-border-color: #e8e3d9;
   --sidebar-width: 300px;
 
   --cover-bg-overlay: none;
 }
 
-/* ---------- 深色 ---------- */
+/* ---------- 深色（暖黑，不用纯冷灰） ---------- */
 html.dark-theme {
-  --color-bg: #171717;
-  --color-text: #ededed;
-  --theme-color: #ededed;
+  --color-bg: #1a1917;
+  --color-text: #edeae3;
+  --theme-color: #edeae3;
 
-  --border-color: rgb(255 255 255 / 0.1);
+  --border-color: rgb(255 255 255 / 0.09);
 
-  --code-bg: #0f0f0f;
-  --codeblock-bg: #0f0f0f;
-  --table-row-alt-bg: #1d1d1d;
+  --code-bg: #141311;
+  --codeblock-bg: #141311;
+  --table-row-alt-bg: #22201d;
 
-  --blockquote-border-color: #3f3f3f;
-  --blockquote-color: #a3a3a3;
+  --blockquote-border-color: #3a3733;
+  --blockquote-color: #a8a29a;
 
-  --callout-bg: #1d1d1d;
-  --callout-border-color: rgb(255 255 255 / 0.12);
+  --callout-bg: #22201d;
+  --callout-border-color: rgb(255 255 255 / 0.1);
 
-  --button-bg: #ededed;
-  --button-color: #171717;
+  --button-bg: #edeae3;
+  --button-color: #1a1917;
 
-  --link-underline-color: #404040;
-  --link-underline-color-hover: #737373;
+  --link-underline-color: #4a463f;
+  --link-underline-color-hover: #7a746b;
 
-  --sidebar-bg: #0f0f0f;
-  --sidebar-border-color: rgb(255 255 255 / 0.08);
+  --sidebar-bg: #141311;
+  --sidebar-border-color: rgb(255 255 255 / 0.07);
 
   color-scheme: dark;
 }
@@ -141,7 +141,7 @@ html.dark-theme {
 .markdown-section .callout.warning,
 .markdown-section .callout.caution,
 .markdown-section .callout.important {
-  --callout-bg: #fafafa;
+  --callout-bg: #f5f1ea;
   --callout-border-color: var(--border-color);
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
@@ -153,7 +153,7 @@ html.dark-theme .markdown-section .callout.note,
 html.dark-theme .markdown-section .callout.warning,
 html.dark-theme .markdown-section .callout.caution,
 html.dark-theme .markdown-section .callout.important {
-  --callout-bg: #1d1d1d;
+  --callout-bg: #22201d;
 }
 
 /* ---------- 标题：收紧字距，视觉更"安静" ---------- */
@@ -182,7 +182,7 @@ section.cover blockquote {
   border: 0;
   padding: 0;
   font-style: normal;
-  color: #737373;
+  color: #6f6a61;
 }
 
 section.cover blockquote p {
@@ -190,7 +190,7 @@ section.cover blockquote p {
 }
 
 html.dark-theme section.cover blockquote {
-  color: #a3a3a3;
+  color: #a8a29a;
 }
 
 section.cover .cover-main > p:last-child a.button {
@@ -242,11 +242,11 @@ html.dark-theme section.cover .cover-main > p:last-child a.button.secondary {
 /* ---------- 滚动条：细、低对比 ---------- */
 html {
   scrollbar-width: thin;
-  scrollbar-color: #d4d4d4 transparent;
+  scrollbar-color: #d9d3c7 transparent;
 }
 
 html.dark-theme {
-  scrollbar-color: #3f3f3f transparent;
+  scrollbar-color: #3a3733 transparent;
 }
 
 ::-webkit-scrollbar {
@@ -259,10 +259,10 @@ html.dark-theme {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #d4d4d4;
+  background: #d9d3c7;
   border-radius: 999px;
 }
 
 html.dark-theme ::-webkit-scrollbar-thumb {
-  background: #3f3f3f;
+  background: #3a3733;
 }
