@@ -30,20 +30,46 @@
     </script>
     <link rel="shortcut icon" href="moluranliStudy.ico">
     <style>
-      /* docsify 默认给封面随机取一个色相做渐变，每次刷新颜色都不一样，这里固定成站点的绿蓝调 */
+      /* 顶部导航：深色主题（docsify-themeable）不认 .app-nav，这里补上间距与颜色 */
+      .app-nav > a {
+        margin: 0 1rem;
+        text-decoration: none;
+      }
+      html.dark-theme .app-nav a {
+        color: #9fb0bd;
+      }
+      html.dark-theme .app-nav a:hover,
+      html.dark-theme .app-nav a.active {
+        color: #4fc3a1;
+        border-bottom-color: #4fc3a1;
+      }
+      /* docsify 默认给封面随机取一个色相做渐变，每次刷新颜色都不一样，这里固定下来 */
       section.cover {
         background: linear-gradient(135deg, #eaf7f1 0%, #e6f0fb 100%) !important;
       }
       html.dark-theme section.cover {
         background: linear-gradient(135deg, #131a21 0%, #0e1419 100%) !important;
       }
-      /* docsify 默认把封面按钮里"最后一个"高亮，这里改成第一个（开始阅读）为主按钮 */
+      html.dark-theme section.cover blockquote,
+      html.dark-theme section.cover blockquote p {
+        color: #b6c2cc;
+      }
+      /* 封面上的多行简介不要把行距拉得太开 */
+      section.cover blockquote p {
+        margin: .35em 0;
+      }
+      /* docsify 默认把封面按钮里"最后一个"高亮，这里改成第一个（开始阅读）为主按钮，
+         两个主题都用站点的绿色，避免深色主题下被主题色染成蓝色 */
+      section.cover .cover-main > p:last-child a {
+        border-color: #42b983;
+        color: #42b983;
+      }
       section.cover .cover-main > p:last-child a:last-child {
         background-color: transparent;
-        color: var(--theme-color, #42b983);
+        color: #42b983;
       }
       section.cover .cover-main > p:last-child a:first-child {
-        background-color: var(--theme-color, #42b983);
+        background-color: #42b983;
         color: #fff;
       }
       section.cover .cover-main > p:last-child a:last-child:hover,
