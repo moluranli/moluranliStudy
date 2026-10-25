@@ -111,6 +111,50 @@ html.dark-theme {
   font-size: 0.9em;
 }
 
+/* 代码块右上角的"复制"按钮：
+   插件默认 background: var(--theme-color)，而本主题的 --theme-color 是暖黑，
+   结果按钮变成一块黑方块。改成浅底细边的中性小胶囊，hover 才完全实心。 */
+.markdown-section .docsify-copy-code-button {
+  background: var(--callout-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  color: var(--blockquote-color);
+  font-size: 12px;
+  line-height: 1.2;
+  margin: 6px;
+  opacity: 0.55;
+  padding: 4px 8px;
+  transition: opacity 150ms ease, background-color 150ms ease,
+    border-color 150ms ease;
+}
+
+.markdown-section pre:hover .docsify-copy-code-button,
+.markdown-section .docsify-copy-code-button:focus {
+  background: var(--color-bg);
+  border-color: var(--blockquote-border-color);
+  opacity: 1;
+}
+
+.markdown-section .docsify-copy-code-button.success {
+  border-color: #b6cdb9;
+  color: #3f6f4a;
+}
+
+.markdown-section .docsify-copy-code-button.error {
+  border-color: #e0c3ba;
+  color: #9c4a33;
+}
+
+html.dark-theme .markdown-section .docsify-copy-code-button.success {
+  border-color: #35503a;
+  color: #8fbf9a;
+}
+
+html.dark-theme .markdown-section .docsify-copy-code-button.error {
+  border-color: #57332a;
+  color: #d08a72;
+}
+
 /* ---------- 表格：圆角细边，表头浅底 ---------- */
 .markdown-section table {
   border: 1px solid var(--border-color);
