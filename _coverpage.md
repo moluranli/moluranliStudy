@@ -12,8 +12,8 @@
     | 🚴‍♂️ 本站总访客数：<span id="busuanzi_value_site_uv"></span> 人
 </span>
 
-[常用资源](./docs/EveryDayPlay/StudyValue)
-[GitHub](https://github.com/Snailclimb/docsify-demo)
+[常用资源](./docs/EveryDayPlay/StudyValue.md)
+[GitHub](https://github.com/moluranli/moluranliStudy)
 [开始阅读](docs/a-1Java基础巩固.md)
 
 
