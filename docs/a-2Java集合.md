@@ -33,7 +33,7 @@ Map 接口 键值对的集合 （双列集合）
 
 下面是Colletion接口的相关方法
 
-![Collection](assets/img/notes/hXYiEs6PrfjAnOW.png)
+![Collection](../assets/img/notes/hXYiEs6PrfjAnOW.png)
 
 ### 各方法介绍
 
@@ -144,7 +144,7 @@ ArrayList维护了一个Object[]属性的数组`transient Object[] elementData`�
 >
 > 需要做如下设置
 >
-> ![image-20220619165902077](assets/img/notes/qZDM8YUBwFJohXt.png)
+> ![image-20220619165902077](../assets/img/notes/qZDM8YUBwFJohXt.png)
 
 debug的代码
 
@@ -318,7 +318,7 @@ public LinkedList() {
 
 会生成空数据{}
 
-![image-20220620110018975](assets/img/notes/5rtKnMHE4zJCXYj.png)
+![image-20220620110018975](../assets/img/notes/5rtKnMHE4zJCXYj.png)
 
 2.执行add()方法
 
