@@ -1,0 +1,99 @@
+/* 阅读进度条 + 右侧本页目录（配色跟随 docsify v5 的 CSS 变量，深色自动适配） */
+
+#read-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 80;
+  width: 100%;
+  height: 3px;
+  pointer-events: none;
+}
+
+#read-progress > i {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--theme-color, #42b983), #2aa876);
+  transition: width 0.08s linear;
+}
+
+#toc-panel {
+  position: fixed;
+  top: 88px;
+  right: 24px;
+  z-index: 60;
+  display: none;
+  width: 220px;
+  max-height: calc(100vh - 150px);
+  padding-left: 14px;
+  overflow-y: auto;
+  border-left: 2px solid var(--border-color, rgba(128, 128, 128, 0.18));
+  font-size: 13px;
+  line-height: 1.6;
+  scrollbar-width: thin;
+}
+
+#toc-panel.show {
+  display: block;
+}
+
+#toc-panel .toc-title {
+  margin-bottom: 8px;
+  color: var(--text-color, inherit);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  opacity: 0.55;
+}
+
+#toc-panel .toc-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#toc-panel .toc-list li {
+  margin: 0;
+}
+
+#toc-panel .toc-list a {
+  display: block;
+  padding: 3px 0;
+  overflow: hidden;
+  color: var(--text-color, inherit);
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border-bottom: 0;
+  opacity: 0.6;
+  transition: opacity 0.15s, color 0.15s;
+}
+
+#toc-panel .toc-list a.lv3 {
+  padding-left: 12px;
+  font-size: 12px;
+}
+
+#toc-panel .toc-list a:hover {
+  color: var(--theme-color, #42b983);
+  opacity: 1;
+}
+
+#toc-panel .toc-list a.active {
+  color: var(--theme-color, #42b983);
+  font-weight: 600;
+  opacity: 1;
+}
+
+/* 跳转时给固定头部留出空间，否则标题会被遮住 */
+.markdown-section h2[id],
+.markdown-section h3[id] {
+  scroll-margin-top: 76px;
+}
+
+@media (max-width: 1399px) {
+  #toc-panel {
+    display: none !important;
+  }
+}

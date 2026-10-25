@@ -17,6 +17,7 @@
     content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
     <!-- docsify 5：core 主题 + core-dark 附加层，样式与脚本全部本地化到 assets/ -->
     <link rel="stylesheet" href="assets/docsify5/themes/core.min.css"/>
+    <link rel="stylesheet" href="assets/plugins/docsify-toc.css"/>
     <link rel="stylesheet" href="assets/docsify5/themes/addons/core-dark.min.css" id="theme_dark"
       media="(prefers-color-scheme: dark)"/>
     <!-- 主题：auto（跟随系统）/ dark / light，手动选过就记住；深色层靠 <html class="dark-theme"> + 这个 link 的 media 控制 -->
@@ -210,6 +211,11 @@
   <script src="assets/plugins/docsify-time-updater.min.js"></script>
   <!--提示高亮-->
   <script src="assets/plugins/docsify-flexible-alerts.js"></script>
+  <!--中英文之间自动加空格（pangu 本地版）-->
+  <script src="assets/plugins/pangu.umd.js"></script>
+  <script src="assets/plugins/docsify-pangu.js"></script>
+  <!--阅读进度条 + 右侧本页目录-->
+  <script src="assets/plugins/docsify-toc.js"></script>
   <!--离线模式：network-first，改完文件刷新即生效-->
   <script>
     if ('serviceWorker' in navigator) {
