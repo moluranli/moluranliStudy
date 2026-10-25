@@ -19,13 +19,13 @@ JVM是java **Virtual Machine java**的运行时环境(**Java 字节码的运行�
 
 
 
-![image-20220718093536862](https://s2.loli.net/2022/07/18/5yPwYSsg7GiFCEQ.png)
+![image-20220718093536862](assets/img/notes/5yPwYSsg7GiFCEQ.png)
 
 
 
 ### 3. JVM的组成
 
-![image-20220718093905544](https://s2.loli.net/2022/07/18/1qtopOh3JITkH7z.png)
+![image-20220718093905544](assets/img/notes/1qtopOh3JITkH7z.png)
 
 1. 程序编译成java的二进制字节码后经过ClassLoader类加载器加载到JVM中运行
 2. 程序中的类放在方法区,类创建的实例和对象放在堆中,对象调用方法时用到虚拟机栈,程序计数器和本地方法栈
@@ -41,7 +41,7 @@ JVM是java **Virtual Machine java**的运行时环境(**Java 字节码的运行�
 
 程序计数器就是在执行每条语句的时候记录下一条指令的地址,物理上是通过寄存器实现的
 
-![image-20220718102440409](https://s2.loli.net/2022/07/18/rEkPq1HKTMbc7Xf.png)
+![image-20220718102440409](assets/img/notes/rEkPq1HKTMbc7Xf.png)
 
 
 
@@ -143,7 +143,7 @@ java.lang.OutOfMemoryError: Java Heap space//堆内存溢出
 
 ## 方法区
 
-![image-20220720161550163](https://s2.loli.net/2022/07/20/AFCWlf1k8hdVytq.png)
+![image-20220720161550163](assets/img/notes/AFCWlf1k8hdVytq.png)
 
 ### 1. 定义
 
@@ -156,11 +156,11 @@ JVM 方法区. 方法区与Java堆一样，是各个**线程共享**的内存区
 
 ### 2. 方法区的内存溢出问题
 
-![image-20220720162918437](https://s2.loli.net/2022/07/20/dQpJtkZNwr1gf2W.png)
+![image-20220720162918437](assets/img/notes/dQpJtkZNwr1gf2W.png)
 
 **结果**
 
-![image-20220720163005984](https://s2.loli.net/2022/07/20/KnqEAUbBro1xHWP.png)*
+![image-20220720163005984](assets/img/notes/KnqEAUbBro1xHWP.png)*
 
 
 

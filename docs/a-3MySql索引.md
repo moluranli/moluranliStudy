@@ -43,7 +43,7 @@
 
 复合索引就是**一个索引中包含了多个列**,使用复合索引的时候遵循**最左前缀原则**
 
-![image-20220712101058304](https://s2.loli.net/2022/07/12/85rZsNaWFfGXDPc.png)
+![image-20220712101058304](assets/img/notes/85rZsNaWFfGXDPc.png)
 
 **参考博客:**[索引最左前缀匹配原则](https://blog.csdn.net/yuanchangliang/article/details/107798724)
 
@@ -61,7 +61,7 @@ B-Tree是**每一个节点都存储数据**,但是每一页是16KB,所以就使�
 
 ### B+Tree
 
-![image-20220712101558688](https://s2.loli.net/2022/07/12/FTbAJj4D8keCwUc.png)
+![image-20220712101558688](assets/img/notes/FTbAJj4D8keCwUc.png)
 
 - 一个**分页**的大小为**16KB**
 - 只有**叶子节点存储行数据**
@@ -86,13 +86,13 @@ B-Tree是**每一个节点都存储数据**,但是每一页是16KB,所以就使�
 
 ### InnoDB的聚簇索引和非聚簇索引
 
-![image-20220712104011308](https://s2.loli.net/2022/07/12/IqUjhMd2QbRAtuW.png)
+![image-20220712104011308](assets/img/notes/IqUjhMd2QbRAtuW.png)
 
 
 
 ### MYSIAM的非聚簇索引
 
-![image-20220712104201029](https://s2.loli.net/2022/07/12/8O764M5GqkxELT9.png)
+![image-20220712104201029](assets/img/notes/8O764M5GqkxELT9.png)
 
 
 

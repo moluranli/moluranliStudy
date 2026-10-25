@@ -1,7 +1,7 @@
-// 配置图标URL
+// 配置图标URL（图标已本地化到 assets/img/，不再走 unpkg）
 const IMAGE_URL = {
-    'arrow-up-1': 'https://unpkg.com/@zhg-x/resources@1.0.0/assets/images/arrow-up-1.png',
-    'arrow-up-2': 'https://unpkg.com/@zhg-x/resources@1.0.0/assets/images/arrow-up-2.png',
+    'arrow-up-1': 'assets/img/arrow-up-1.png',
+    'arrow-up-2': 'assets/img/arrow-up-1.png',
 };
 const CONFIG = {
     auto: true,
