@@ -115,10 +115,21 @@
   <script src="assets/plugins/docsify-time-updater.min.js"></script>
   <!--提示高亮-->
   <script src="assets/plugins/docsify-flexible-alerts.js"></script>
-  <!--离线模式-->
+  <!--离线模式：network-first，改完文件刷新即生效-->
   <script>
-    if (typeof navigator.serviceWorker !== 'undefined') {
-      navigator.serviceWorker.register('sw.js')
+    if ('serviceWorker' in navigator) {
+      var reloading = false
+      var hadController = !!navigator.serviceWorker.controller
+      // 旧 sw 被新版本替换时自动刷新一次；首次访问不刷新
+      navigator.serviceWorker.addEventListener('controllerchange', function () {
+        if (reloading || !hadController) return
+        reloading = true
+        window.location.reload()
+      })
+      navigator.serviceWorker
+        .register('sw.js', { updateViaCache: 'none' })
+        .then(function (reg) { reg.update() })
+        .catch(function () {})
     }
   </script>
   <!--切换主题-->
