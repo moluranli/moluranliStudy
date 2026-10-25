@@ -15,33 +15,36 @@
   <meta property="og:url" content="https://moluranli.github.io/moluranliStudy/"/>
   <meta name="viewport"
     content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-    <!-- 样式与脚本全部本地化到 assets/，不再依赖 jsdelivr / unpkg 等 CDN -->
-    <link rel="stylesheet" href="assets/docsify/vue.css" id="theme_style"/>
-    <!-- 记住上次选的主题，避免刷新后闪一下 -->
+    <!-- docsify 5：core 主题 + core-dark 附加层，样式与脚本全部本地化到 assets/ -->
+    <link rel="stylesheet" href="assets/docsify5/themes/core.min.css"/>
+    <link rel="stylesheet" href="assets/docsify5/themes/addons/core-dark.min.css" id="theme_dark"
+      media="(prefers-color-scheme: dark)"/>
+    <!-- 主题：auto（跟随系统）/ dark / light，手动选过就记住；深色层靠 <html class="dark-theme"> + 这个 link 的 media 控制 -->
     <script>
       (function () {
-        try {
-          if (localStorage.getItem('theme') === 'dark') {
-            document.getElementById('theme_style').href = 'assets/docsify/theme-simple-dark.css'
-            document.documentElement.className += ' dark-theme'
-          }
-        } catch (e) {}
+        var mql = window.matchMedia('(prefers-color-scheme: dark)')
+        function stored() {
+          try { return localStorage.getItem('theme') } catch (e) { return null }
+        }
+        function apply(dark) {
+          document.documentElement.classList.toggle('dark-theme', dark)
+          var link = document.getElementById('theme_dark')
+          if (link) link.media = dark ? 'all' : 'not all'
+        }
+        var s = stored()
+        apply(s === 'dark' || (s !== 'light' && mql.matches))
+        mql.addEventListener('change', function (e) {
+          var cur = stored()
+          if (cur === 'dark' || cur === 'light') return
+          apply(e.matches)
+        })
       })()
     </script>
     <link rel="shortcut icon" href="moluranliStudy.ico">
     <style>
-      /* 顶部导航：深色主题（docsify-themeable）不认 .app-nav，这里补上间距与颜色 */
-      .app-nav > a {
-        margin: 0 1rem;
-        text-decoration: none;
-      }
-      html.dark-theme .app-nav a {
-        color: #9fb0bd;
-      }
-      html.dark-theme .app-nav a:hover,
-      html.dark-theme .app-nav a.active {
-        color: #4fc3a1;
-        border-bottom-color: #4fc3a1;
+      /* 站点主色：v5 core 主题的按钮、链接、高亮都由 --theme-color 派生 */
+      :root {
+        --theme-color: #42b983;
       }
       /* docsify 默认给封面随机取一个色相做渐变，每次刷新颜色都不一样，这里固定下来 */
       section.cover {
@@ -50,32 +53,14 @@
       html.dark-theme section.cover {
         background: linear-gradient(135deg, #131a21 0%, #0e1419 100%) !important;
       }
-      html.dark-theme section.cover blockquote,
-      html.dark-theme section.cover blockquote p {
-        color: #b6c2cc;
-      }
       /* 封面上的多行简介不要把行距拉得太开 */
       section.cover blockquote p {
         margin: .35em 0;
       }
-      /* docsify 默认把封面按钮里"最后一个"高亮，这里改成第一个（开始阅读）为主按钮，
-         两个主题都用站点的绿色，避免深色主题下被主题色染成蓝色 */
-      section.cover .cover-main > p:last-child a {
-        border-color: #42b983;
-        color: #42b983;
-      }
-      section.cover .cover-main > p:last-child a:last-child {
-        background-color: transparent;
-        color: #42b983;
-      }
-      section.cover .cover-main > p:last-child a:first-child {
-        background-color: #42b983;
-        color: #fff;
-      }
-      section.cover .cover-main > p:last-child a:last-child:hover,
-      section.cover .cover-main > p:last-child a:first-child:hover {
-        color: inherit;
-        opacity: .8;
+      /* 封面按钮：第一个（开始阅读）当主按钮，其余是描边按钮 */
+      section.cover .cover-main a.button {
+        margin: .3rem .4rem;
+        border-radius: 6px;
       }
     </style>
 </head>
@@ -85,7 +70,7 @@
   <!--导航栏-->
   <nav class="app-nav">
     <a href="#/./docs/a-1Java基础巩固">快速开始</a>
-    <a href="javascript:void(0);" onclick="changeStyle()">主题切换</a>
+    <a href="javascript:void(0);" onclick="changeStyle()" id="theme_switch" title="主题：跟随系统">主题切换</a>
     <a href="https://github.com/moluranli">Github</a>
     <a href="#/./docs/about">关于站点</a>
   </nav>
@@ -108,11 +93,10 @@
       auto2top: true,//切换页面后是否自动跳转到页面顶部
       //全文搜索
       search: {
-        //maxAge: 86400000, // 过期时间，单位毫秒，默认一天
         paths: 'auto',
         placeholder: '搜索笔记…',
         noData: '找不到结果',
-        // 搜索标题的最大程级, 1 - 6
+        // 搜索标题的最大层级, 1 - 6
         depth: 3,
       },
       //字数统计：用中文单位（XX 字 | N 分钟）
@@ -203,21 +187,21 @@
       ],
     }
   </script>
-  <script src="assets/docsify/docsify.min.js"></script>
-  <!--Java代码高亮-->
+  <script src="assets/docsify5/docsify.min.js"></script>
+  <!--Java代码高亮：v5 自带 Prism，但只带 clike/javascript，java 语法要单独补-->
   <script src="assets/prism/prism-java.js"></script>
-  <!--全文搜索,直接用官方提供的无法生效-->
-  <script src="assets/docsify/plugins/search-4.5.9.min.js"></script>
+  <!--全文搜索（v5 自带，含中文分词）-->
+  <script src="assets/docsify5/plugins/search.min.js"></script>
   <!-- 复制到剪贴板 -->
   <script src="assets/plugins/docsify-copy-code.js"></script>
   <!-- 图片缩放 -->
-  <script src="assets/docsify/plugins/zoom-image.js"></script>
+  <script src="assets/docsify5/plugins/zoom-image.min.js"></script>
   <!-- 字数统计 -->
   <script src="assets/plugins/docsify-countable.js"></script>
   <!--滚动到页面顶端-->
   <script src="assets/plugins/docsify-scroll-to-top.js"></script>
   <!--emoji表情解析-->
-  <script src="assets/docsify/plugins/emoji.min.js"></script>
+  <script src="assets/docsify5/plugins/emoji.min.js"></script>
   <!--分页-->
   <script src="assets/plugins/docsify-pagination.min.js"></script>
   <!--右上角自定义图片-->
@@ -243,16 +227,21 @@
         .catch(function () {})
     }
   </script>
-  <!--切换主题-->
+  <!--切换主题：跟随系统 → 深色 → 浅色 循环-->
   <script>
-    function changeStyle(){
-      var css = document.getElementById('theme_style')
-      var light = 'assets/docsify/vue.css'
-      var dark = 'assets/docsify/theme-simple-dark.css'
-      var toDark = css.getAttribute('href').indexOf('theme-simple-dark') === -1
-      css.href = toDark ? dark : light
-      document.documentElement.classList.toggle('dark-theme', toDark)
-      try { localStorage.setItem('theme', toDark ? 'dark' : 'light') } catch (e) {}
+    function changeStyle() {
+      var root = document.documentElement
+      var mql = window.matchMedia('(prefers-color-scheme: dark)')
+      var btn = document.getElementById('theme_switch')
+      try { var cur = localStorage.getItem('theme') } catch (e) { var cur = null }
+      var next = cur === null || cur === 'auto' ? 'dark' : (cur === 'dark' ? 'light' : 'auto')
+      if (next === 'auto') { try { localStorage.removeItem('theme') } catch (e) {} }
+      else { try { localStorage.setItem('theme', next) } catch (e) {} }
+      var dark = next === 'auto' ? mql.matches : next === 'dark'
+      root.classList.toggle('dark-theme', dark)
+      var link = document.getElementById('theme_dark')
+      if (link) link.media = dark ? 'all' : 'not all'
+      if (btn) btn.title = '主题：' + (next === 'auto' ? '跟随系统' : (next === 'dark' ? '深色' : '浅色'))
     }
   </script>
 </body>
