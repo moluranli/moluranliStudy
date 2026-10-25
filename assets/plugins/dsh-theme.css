@@ -1,7 +1,8 @@
 /* ==========================================================================
    DSH 风格主题层
-   取色与排版参考 DeepSeek Harness 桌面端（shadcn neutral 调色板 + Inter 字体）：
-   无彩色主色、克制的中性灰、10px 圆角、细边框、安静的高亮。
+   取色直接采自 DSH Next 窗口截图的像素（页面 #f5f3ee / 侧栏 #efede8 /
+   卡片 #faf8f4 / 正文 #1d1b16 / 边框 #e3e1db），
+   无彩色主色、暖白纸感、10px 圆角、细边框、安静的高亮。
    本文件只覆盖 docsify v5 core 主题的 CSS 变量与少量结构细节，
    必须放在 core.min.css / core-dark.min.css / docsify-toc.css 之后加载。
    ========================================================================== */
@@ -9,13 +10,13 @@
 /* ---------- 浅色（暖白纸感） ---------- */
 :root {
   /* 底色：暖白偏米（不是 #fff），文字用暖黑，整体偏"纸"而不是"屏幕" */
-  --color-bg: #faf8f4;
-  --color-text: #26241f;
+  --color-bg: #f5f3ee;
+  --color-text: #1d1b16;
 
   /* 强调色：DSH 没有彩色主色，强调一律用中性色 */
-  --theme-color: #26241f;
+  --theme-color: #1d1b16;
 
-  --border-color: #e8e3d9;
+  --border-color: #e3e1db;
   --border-radius: 10px;
 
   /* 排版：Inter 优先，中文回落到系统中文字体 */
@@ -29,34 +30,34 @@
   --strong-font-weight: 600;
 
   /* 代码与表格 */
-  --code-bg: #f1ece3;
-  --codeblock-bg: #f4f0e9;
-  --table-row-alt-bg: #f5f1ea;
+  --code-bg: #efede8;
+  --codeblock-bg: #efede8;
+  --table-row-alt-bg: #faf8f4;
 
   /* 引用块：细左边线，不用彩色 */
   --blockquote-border-width: 0 0 0 2px;
-  --blockquote-border-color: #d9d3c7;
+  --blockquote-border-color: #dbd8d4;
   --blockquote-border-radius: 0;
   --blockquote-color: #57524a;
 
   /* 提示框 */
-  --callout-bg: #f5f1ea;
-  --callout-border-color: #e8e3d9;
+  --callout-bg: #faf8f4;
+  --callout-border-color: #e3e1db;
   --callout-border-radius: 10px;
 
   /* 按钮：实心暖黑 + 8px 圆角，不再用胶囊形 */
-  --button-bg: #26241f;
+  --button-bg: #1d1b16;
   --button-color: #faf8f4;
   --button-border-radius: 8px;
 
   /* 链接：默认细下划线，hover 变强调色（DSH 的写法） */
   --link-underline-thickness: 1px;
-  --link-underline-color: #d9d3c7;
+  --link-underline-color: #dbd8d4;
   --link-underline-color-hover: #a8a29a;
 
   /* 侧边栏比正文略深一档，形成层次 */
-  --sidebar-bg: #f4f1ea;
-  --sidebar-border-color: #e8e3d9;
+  --sidebar-bg: #efede8;
+  --sidebar-border-color: #e3e1db;
   --sidebar-width: 300px;
 
   --cover-bg-overlay: none;
@@ -64,29 +65,29 @@
 
 /* ---------- 深色（暖黑，不用纯冷灰） ---------- */
 html.dark-theme {
-  --color-bg: #1a1917;
-  --color-text: #edeae3;
-  --theme-color: #edeae3;
+  --color-bg: #1a1815;
+  --color-text: #eae7e0;
+  --theme-color: #eae7e0;
 
   --border-color: rgb(255 255 255 / 0.09);
 
-  --code-bg: #141311;
-  --codeblock-bg: #141311;
-  --table-row-alt-bg: #22201d;
+  --code-bg: #14120f;
+  --codeblock-bg: #14120f;
+  --table-row-alt-bg: #201d19;
 
-  --blockquote-border-color: #3a3733;
+  --blockquote-border-color: #38342e;
   --blockquote-color: #a8a29a;
 
-  --callout-bg: #22201d;
+  --callout-bg: #201d19;
   --callout-border-color: rgb(255 255 255 / 0.1);
 
-  --button-bg: #edeae3;
-  --button-color: #1a1917;
+  --button-bg: #eae7e0;
+  --button-color: #1a1815;
 
   --link-underline-color: #4a463f;
   --link-underline-color-hover: #7a746b;
 
-  --sidebar-bg: #141311;
+  --sidebar-bg: #141210;
   --sidebar-border-color: rgb(255 255 255 / 0.07);
 
   color-scheme: dark;
@@ -141,7 +142,7 @@ html.dark-theme {
 .markdown-section .callout.warning,
 .markdown-section .callout.caution,
 .markdown-section .callout.important {
-  --callout-bg: #f5f1ea;
+  --callout-bg: #faf8f4;
   --callout-border-color: var(--border-color);
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
@@ -153,7 +154,7 @@ html.dark-theme .markdown-section .callout.note,
 html.dark-theme .markdown-section .callout.warning,
 html.dark-theme .markdown-section .callout.caution,
 html.dark-theme .markdown-section .callout.important {
-  --callout-bg: #22201d;
+  --callout-bg: #201d19;
 }
 
 /* ---------- 标题：收紧字距，视觉更"安静" ---------- */
@@ -182,7 +183,7 @@ section.cover blockquote {
   border: 0;
   padding: 0;
   font-style: normal;
-  color: #6f6a61;
+  color: #57524a;
 }
 
 section.cover blockquote p {
@@ -242,7 +243,7 @@ html.dark-theme section.cover .cover-main > p:last-child a.button.secondary {
 /* ---------- 滚动条：细、低对比 ---------- */
 html {
   scrollbar-width: thin;
-  scrollbar-color: #d9d3c7 transparent;
+  scrollbar-color: #dbd8d4 transparent;
 }
 
 html.dark-theme {
@@ -259,7 +260,7 @@ html.dark-theme {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #d9d3c7;
+  background: #dbd8d4;
   border-radius: 999px;
 }
 
