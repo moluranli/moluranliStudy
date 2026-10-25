@@ -4,11 +4,11 @@
 
 ## 依赖技术
 
-![image-20220504102821998](../assets/img/notes/zUXVM2FS1yWElPb.png)
+![image-20220504102821998](../assets/img/notes/zUXVM2FS1yWElPb.webp)
 
 ## 开发环境
 
-![image-20220504102911708](../assets/img/notes/fTzDZtREnVH8Kye.png)
+![image-20220504102911708](../assets/img/notes/fTzDZtREnVH8Kye.webp)
 
 # 阶段1:项目环境搭建
 

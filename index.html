@@ -151,7 +151,7 @@
       corner: {
         url: "https://github.com/moluranli",
         // you can set the image link here
-        icon: "assets/img/corner.png",
+        icon: "assets/img/corner.webp",
         // the size of the image
         width: 80,
         height: 80
@@ -184,6 +184,19 @@
               if (node.nodeValue.indexOf('{docsify-updated}') > -1) {
                 node.nodeValue = node.nodeValue.replace(/\{docsify-updated\}/g, stamp)
               }
+            }
+          })
+        },
+        // 图片懒加载：单篇笔记动辄几十张截图，滚到哪张才下载哪张
+        function (hook) {
+          hook.doneEach(function () {
+            var imgs = document.querySelectorAll('.markdown-section img')
+            for (var i = 0; i < imgs.length; i++) {
+              var img = imgs[i]
+              if (img.getAttribute('data-lazy')) continue
+              img.setAttribute('data-lazy', '1')
+              img.setAttribute('loading', 'lazy')
+              img.setAttribute('decoding', 'async')
             }
           })
         }

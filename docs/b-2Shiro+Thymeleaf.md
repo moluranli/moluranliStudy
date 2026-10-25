@@ -4,7 +4,7 @@
 
 [【编程不良人】2020最新版Shiro教程,整合SpringBoot项目实战教程_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1uz4y197Zm?p=12&spm_id_from=pageDriver)
 
-![image-20220409222104049](../assets/img/notes/dA15W8iCvZbKcgt.png)
+![image-20220409222104049](../assets/img/notes/dA15W8iCvZbKcgt.webp)
 
 
 # 项目
@@ -44,7 +44,7 @@ public class MyWebConfigurer implements WebMvcConfigurer {
 
 > shiroFilterFactoryBean含有方法: shiroFilterFactoryBean.setFilterChainDefinitionMap(map); 需要定义一个map,map的key为需要访问资源页面的action,value为filter自己的权限信息,比如authc为进行认证以及授权.常见的如下:
 >
-![image-20220410153906205](../assets/img/notes/rD6utsNcaGXJyi5.png)
+![image-20220410153906205](../assets/img/notes/rD6utsNcaGXJyi5.webp)
 
 ```java
 @Configuration
@@ -135,7 +135,7 @@ public String login(String username, String password){
 
 
 
-![image-20220410155222468](../assets/img/notes/drxO9aboLNzDBsV.png)
+![image-20220410155222468](../assets/img/notes/drxO9aboLNzDBsV.webp)
 
 
 
@@ -246,7 +246,7 @@ return null;
 
 通过用户名拿到当前用户后返回
 
-![image-20220410171915636](../assets/img/notes/6R5aqXxDevyntWM.png)
+![image-20220410171915636](../assets/img/notes/6R5aqXxDevyntWM.webp)
 
 ## redis缓存处理
 

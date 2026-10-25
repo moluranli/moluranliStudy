@@ -14,7 +14,7 @@
 
 - MongoDB数据库
 
-![image-20220416190536589](../assets/img/notes/hSzcoVWpOyCuf8R.png)
+![image-20220416190536589](../assets/img/notes/hSzcoVWpOyCuf8R.webp)
 
 ## Redis底层原理
 
@@ -24,7 +24,7 @@
 
 这里**“多路”**指的是多个网络连接客户端，**“复用”**指的是复用同一个线程(单进程)。I/O 多路复用其实是使用一个线程来检查多个 Socket 的就绪状态，在单个线程中通过记录跟踪每一个 socket（I/O流）的状态来管理处理多个 I/O 流
 
-![img](../assets/img/notes/G81tOe7XFQVUDd5.png)
+![img](../assets/img/notes/G81tOe7XFQVUDd5.webp)
 
 - (1)一个 socket 客户端与服务端连接时，会生成对应一个套接字描述符(套接字描述符是文件描述符的一种)，每一个 socket 网络连接其实都对应一个文件描述符。
 - (2)多个客户端与服务端连接时，Redis 使用 **「I/O 多路复用程序」** 将客户端 socket 对应的 FD 注册到监听列表(一个队列)中。当客服端执行 read、write 等操作命令时，I/O 多路复用程序会将命令封装成一个事件，并绑定到对应的 FD 上。
@@ -64,7 +64,7 @@ flushall//清空所有数据库
 
 介绍
 
-![image-20220416200623992](../assets/img/notes/kpN5nsUvVJbAXPO.png)
+![image-20220416200623992](../assets/img/notes/kpN5nsUvVJbAXPO.webp)
 
 常用命令
 
@@ -94,7 +94,7 @@ mset key value value
 
 redis具有原子性,而java中的i++不是原子性操作
 
-![image-20220416202440927](../assets/img/notes/BTDNls1fLwqthuW.png)
+![image-20220416202440927](../assets/img/notes/BTDNls1fLwqthuW.webp)
 
 ### 2.其他数据类型
 
@@ -106,29 +106,29 @@ redis具有原子性,而java中的i++不是原子性操作
 
 >bitmap里的value都是以01存储
 
-![image-20220418093602214](../assets/img/notes/H8Bx4ZdweR6MStq.png)
+![image-20220418093602214](../assets/img/notes/H8Bx4ZdweR6MStq.webp)
 
-![image-20220418093732230](../assets/img/notes/wlV7UhZ2fcsYDAv.png)
+![image-20220418093732230](../assets/img/notes/wlV7UhZ2fcsYDAv.webp)
 
 ### HyperLogLog
 
 >求集合中不重复元素的个数
 
-![image-20220418093933408](../assets/img/notes/hOik26TCjFMAqXS.png)
+![image-20220418093933408](../assets/img/notes/hOik26TCjFMAqXS.webp)
 
 ### Geospaatial
 
 > 用于地理位置
 
-![image-20220418094107207](../assets/img/notes/nS64Oowpyia8CQH.png)
+![image-20220418094107207](../assets/img/notes/nS64Oowpyia8CQH.webp)
 
 ## Redis事务和锁机制
 
-![image-20220417161653903](../assets/img/notes/WV649FNneJBp8Uc.png)
+![image-20220417161653903](../assets/img/notes/WV649FNneJBp8Uc.webp)
 
 ### Multi, Exec,Discard
 
-![image-20220417161856176](../assets/img/notes/dfEMvO8xcsRIKri.png)
+![image-20220417161856176](../assets/img/notes/dfEMvO8xcsRIKri.webp)
 
 ### 事务的错误处理
 
@@ -178,13 +178,13 @@ QUEUED
 
 给事务加上锁,需要执行时需要拿到锁才能执行下一步操作.
 
-![image-20220417163520543](../assets/img/notes/T4nNQrc3Gs6fYD1.png)
+![image-20220417163520543](../assets/img/notes/T4nNQrc3Gs6fYD1.webp)
 
 #### 乐观锁 
 
 给事务加一个版本号,每个人都能拿到这个版本号,他们执行对应操作后,快的那个人执行完相应操作后就会将版本号更新,另一个人操作时,会相比较自己获取的版本号与当前的版本是否相同,如果不相同就会重新设置自己获取的版本号.然后继续竞争执行操作
 
-![image-20220418204252274](../assets/img/notes/J9YEPzsI1XioLy6.png)
+![image-20220418204252274](../assets/img/notes/J9YEPzsI1XioLy6.webp)
 
 ### 事务的乐观锁命令操作
 
@@ -225,7 +225,7 @@ QUEUED
 
 ### redis事务的三大特性
 
-![image-20220418094423786](../assets/img/notes/lsjMmJxFLQkNtAU.png)
+![image-20220418094423786](../assets/img/notes/lsjMmJxFLQkNtAU.webp)
 
 ## Redis事务实例:秒杀
 
@@ -317,7 +317,7 @@ public class SecKillServiceImpl {
 
 在进行修改的时候,会先fork一个子进程,这个子进程会先生成一个存储数据的临时文件,然后在通过临时文件修改dump.rdb文件,这么做是为了防止如果直接保存到dump.rdb时,如果服务器异常,那么dump.rdb文件中保存的数据不完整.
 
-![image-20220419100432975](../assets/img/notes/cRqA253KUgXjN97.png)
+![image-20220419100432975](../assets/img/notes/cRqA253KUgXjN97.webp)
 
 ### 2. AOF
 
@@ -325,7 +325,7 @@ public class SecKillServiceImpl {
 
 会生成appendonly.aof文件,aof默认关闭,当aof和rdb都开启时,使用aof
 
-![image-20220419104512045](../assets/img/notes/fWVnAuNsOLaUkRm.png)![image-20220419104610301](../assets/img/notes/rwMa9Y45s3jTgZq.png)
+![image-20220419104512045](../assets/img/notes/fWVnAuNsOLaUkRm.webp)![image-20220419104610301](../assets/img/notes/rwMa9Y45s3jTgZq.webp)
 
 
 
@@ -339,7 +339,7 @@ aof存在bug,造成恢复数据出错.
 >
 > 在主服务器进行写数据的时候,主服务器会自动发起同步从服务器
 
-![image-20220419141257577](../assets/img/notes/lofiByWXqFRJd41.png)
+![image-20220419141257577](../assets/img/notes/lofiByWXqFRJd41.webp)
 
 ### 设置服务:windows下
 
@@ -449,25 +449,25 @@ sentinel current-epoch 2
 
 ### 问题
 
-![image-20220419190212275](../assets/img/notes/3okV1rT4g5PGIR8.png)
+![image-20220419190212275](../assets/img/notes/3okV1rT4g5PGIR8.webp)
 
 ### 主机代理模式
 
 > 使用了较多的服务器,不合理
 
-![image-20220419190331827](../assets/img/notes/ZPczsD3K26S7eUt.png)
+![image-20220419190331827](../assets/img/notes/ZPczsD3K26S7eUt.webp)
 
 ### 无中心集群方式
 
 > 每一台服务器都可以作为进入集群的入口
 
-![image-20220419190420047](../assets/img/notes/Fhb3pwoefWr7zqc.png)
+![image-20220419190420047](../assets/img/notes/Fhb3pwoefWr7zqc.webp)
 
 ### 集群设置
 
 > 参照视频: [集群操作](https://www.bilibili.com/video/BV1Rv41177Af?p=37&spm_id_from=pageDriver)
 
-![image-20220419192435879](../assets/img/notes/EMoKRSYuTsWFkbe.png)
+![image-20220419192435879](../assets/img/notes/EMoKRSYuTsWFkbe.webp)
 
 #### Redis集群创建操作
 
@@ -692,7 +692,7 @@ fe7f44662acd2da9a4701f7640a88f04907cacdf 172.18.0.6:6390@16390 slave 5d16ac1d574
 
 ##### 其他指令
 
-![image-20220420141852053](../assets/img/notes/89QjpHK1amIk5Vg.png)
+![image-20220420141852053](../assets/img/notes/89QjpHK1amIk5Vg.webp)
 
 ##### 故障恢复
 
@@ -726,7 +726,7 @@ c4b7ac2fe95db71f6cb82c735149cdd9042f8498 172.18.0.4:6381@16381 master - 0 165043
 
 ### Redis缓存穿透
 
-![image-20220420203208085](../assets/img/notes/8nfYX62NTcjxRIG.png)
+![image-20220420203208085](../assets/img/notes/8nfYX62NTcjxRIG.webp)
 
 #### 造成原因
 
@@ -742,7 +742,7 @@ c4b7ac2fe95db71f6cb82c735149cdd9042f8498 172.18.0.4:6381@16381 master - 0 165043
 
 3. 采用布隆过滤器,底层与bitmap类似
 
-   ![image-20220420202838109](../assets/img/notes/fbvj924qIXHCgDO.png)![image-20220420203001035](../assets/img/notes/4ZoMKiIFwka1tmC.png)
+   ![image-20220420202838109](../assets/img/notes/fbvj924qIXHCgDO.webp)![image-20220420203001035](../assets/img/notes/4ZoMKiIFwka1tmC.webp)
 
 4. 实际监控,建立黑名单
 
@@ -750,7 +750,7 @@ c4b7ac2fe95db71f6cb82c735149cdd9042f8498 172.18.0.4:6381@16381 master - 0 165043
 
 #### 造成原因
 
-![image-20220420203913522](../assets/img/notes/Cz7N3i5eGuYmAjW.png)
+![image-20220420203913522](../assets/img/notes/Cz7N3i5eGuYmAjW.webp)
 
 #### 解决方法
 
@@ -762,7 +762,7 @@ c4b7ac2fe95db71f6cb82c735149cdd9042f8498 172.18.0.4:6381@16381 master - 0 165043
 
 #### 造成原因
 
-![image-20220420205001832](../assets/img/notes/dMgk2iXIyAYtZSb.png)
+![image-20220420205001832](../assets/img/notes/dMgk2iXIyAYtZSb.webp)
 
 #### 解决方法
 
@@ -775,7 +775,7 @@ c4b7ac2fe95db71f6cb82c735149cdd9042f8498 172.18.0.4:6381@16381 master - 0 165043
 
 > 在分布式集群中,一台机器上的锁不能在其他机器上使用
 
-![image-20220420210725939](../assets/img/notes/dVpXHYSnLFlgmPo.png)
+![image-20220420210725939](../assets/img/notes/dVpXHYSnLFlgmPo.webp)
 
 ### 基于redis分布锁
 
@@ -807,7 +807,7 @@ set k1 v1 nx ex 10
 
 使用java中的uuid解决
 
-![image-20220421103353638](../assets/img/notes/mLHKdN7CogXlM9x.png)
+![image-20220421103353638](../assets/img/notes/mLHKdN7CogXlM9x.webp)
 
 ### 问题2
 
@@ -815,4 +815,4 @@ set k1 v1 nx ex 10
 
 使用LUA脚本解决
 
-![image-20220421103451902](../assets/img/notes/bK2ioJLYRuNsDZ9.png)
+![image-20220421103451902](../assets/img/notes/bK2ioJLYRuNsDZ9.webp)

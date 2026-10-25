@@ -1,5 +1,5 @@
 <p align="center">
-<img src="assets/img/avatar.png" width="180" height="180" style="border-radius:50%" />
+<img src="assets/img/avatar.webp" width="180" height="180" style="border-radius:50%" />
 </p>
 <h1 align="center">MoluranliStudy</h1>
 

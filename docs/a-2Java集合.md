@@ -33,7 +33,7 @@ Map 接口 键值对的集合 （双列集合）
 
 下面是Colletion接口的相关方法
 
-![Collection](../assets/img/notes/hXYiEs6PrfjAnOW.png)
+![Collection](../assets/img/notes/hXYiEs6PrfjAnOW.webp)
 
 ### 各方法介绍
 

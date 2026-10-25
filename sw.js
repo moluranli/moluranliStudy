@@ -1,14 +1,10 @@
 /* ===========================================================
- * docsify sw.js —— network-first 版
- * ===========================================================
- * 旧版是 stale-while-revalidate：命中最快的是缓存，所以 push 完刷新
- * 往往还是旧内容（这次侧边栏没更新就是它）。改成「先要网络，只有
- * 网络超时/断开才回落缓存」，保证改完文件刷新即生效，同时保留离线能力。
- *
- * 版本号变更会清空旧 cache，见 activate。
- * ========================================================== */
+ * docsify sw.js —�?network-first �? * ===========================================================
+ * 旧版�?stale-while-revalidate：命中最快的是缓存，所�?push 完刷�? * 往往还是旧内容（这次侧边栏没更新就是它）。改成「先要网络，只有
+ * 网络超时/断开才回落缓存」，保证改完文件刷新即生效，同时保留离线能力�? *
+ * 版本号变更会清空�?cache，见 activate�? * ========================================================== */
 
-const RUNTIME = 'docsify-v3';
+const RUNTIME = 'docsify-v4';
 const TIMEOUT_MS = 3500;
 
 // 新版本立即接管，不用等所有标签页关闭
@@ -44,8 +40,7 @@ self.addEventListener('fetch', (event) => {
   if (request.method !== 'GET') return;
 
   const url = new URL(request.url);
-  // 只接管本站请求，跨域的（统计脚本等）交给浏览器
-  if (url.origin !== self.location.origin) return;
+  // 只接管本站请求，跨域的（统计脚本等）交给浏览�?  if (url.origin !== self.location.origin) return;
 
   event.respondWith(
     (async () => {
