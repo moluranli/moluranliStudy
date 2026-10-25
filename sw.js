@@ -1,13 +1,13 @@
 /* ===========================================================
- * docsify sw.js —�?network-first �? * ===========================================================
- * 旧版�?stale-while-revalidate：命中最快的是缓存，所�?push 完刷�? * 往往还是旧内容（这次侧边栏没更新就是它）。改成「先要网络，只有
- * 网络超时/断开才回落缓存」，保证改完文件刷新即生效，同时保留离线能力�? *
- * 版本号变更会清空�?cache，见 activate�? * ========================================================== */
+ * docsify sw.js 鈥斺€?network-first 鐗? * ===========================================================
+ * 鏃х増鏄?stale-while-revalidate锛氬懡涓渶蹇殑鏄紦瀛橈紝鎵€浠?push 瀹屽埛鏂? * 寰€寰€杩樻槸鏃у唴瀹癸紙杩欐渚ц竟鏍忔病鏇存柊灏辨槸瀹冿級銆傛敼鎴愩€屽厛瑕佺綉缁滐紝鍙湁
+ * 缃戠粶瓒呮椂/鏂紑鎵嶅洖钀界紦瀛樸€嶏紝淇濊瘉鏀瑰畬鏂囦欢鍒锋柊鍗崇敓鏁堬紝鍚屾椂淇濈暀绂荤嚎鑳藉姏銆? *
+ * 鐗堟湰鍙峰彉鏇翠細娓呯┖鏃?cache锛岃 activate銆? * ========================================================== */
 
 const RUNTIME = 'docsify-v5';
 const TIMEOUT_MS = 3500;
 
-// 新版本立即接管，不用等所有标签页关闭
+// 鏂扮増鏈珛鍗虫帴绠★紝涓嶇敤绛夋墍鏈夋爣绛鹃〉鍏抽棴
 self.addEventListener('install', () => self.skipWaiting());
 
 self.addEventListener('activate', (event) => {
@@ -40,7 +40,7 @@ self.addEventListener('fetch', (event) => {
   if (request.method !== 'GET') return;
 
   const url = new URL(request.url);
-  // 只接管本站请求，跨域的（统计脚本等）交给浏览�?  if (url.origin !== self.location.origin) return;
+  // 鍙帴绠℃湰绔欒姹傦紝璺ㄥ煙鐨勶紙缁熻鑴氭湰绛夛級浜ょ粰娴忚鍣?  if (url.origin !== self.location.origin) return;
 
   event.respondWith(
     (async () => {
