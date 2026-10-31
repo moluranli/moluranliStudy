@@ -8,7 +8,6 @@
 - **[中间件](docs/b-1Redis.md)** — Redis、Shiro + Thymeleaf
 - **[项目实践](docs/c-1Forum_Practice在线论坛.md)** — 在线论坛
 - **[常用设计模式](docs/d-1常用设计模式.md)** — 单例、工厂、代理这些常考的
-- **[每日计划](docs/EveryDayPlay/202206/a-6月.md)** — 2022 年 6 月的日常记录，按天汇总
 
 ## 关于本站
 

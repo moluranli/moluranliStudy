@@ -1,14 +1,6 @@
 * 🔒仅授权可见
 
   * [Java思维导图](./docs/private.md)
-* 🎨每日计划
-
-  * [常用资源](./docs/EveryDayPlay/StudyValue.md)
-  * [2022年6月（汇总）](./docs/EveryDayPlay/202206/a-6月.md)
-  * [16日](./docs/EveryDayPlay/202206/16日.md)
-  * [17日](./docs/EveryDayPlay/202206/17日.md)
-  * [18日](./docs/EveryDayPlay/202206/18日.md)
-  * [19日 ~ 未知](./docs/EveryDayPlay/202206/19日-未知.md)
 * 👨‍⚖️秋招准备
 
   * [Java基础](./docs/a-1Java基础巩固.md)

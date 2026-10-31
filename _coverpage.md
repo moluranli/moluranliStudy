@@ -10,6 +10,5 @@
 > 边学边写，持续更新
 
 [开始阅读](docs/a-1Java基础巩固.md)
-[每日计划](docs/EveryDayPlay/202206/a-6月.md)
 [关于本站](docs/about.md)
 [GitHub](https://github.com/moluranli/moluranliStudy)
